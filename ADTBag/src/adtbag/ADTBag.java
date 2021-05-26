@@ -6,6 +6,22 @@ public class ADTBag {
 
     public static void main(String[] args) {
 
+        ArrayList<Item> items = new ArrayList<>();
+        
+        Item item = new Item();
+        
+        items.add(item);
+        
+        // doesn't work - not the right type
+        // items.add("new item");
+        
+        ArrayList<Object> objects = new ArrayList<>();
+        
+        objects.add(item);
+        objects.add("new item");
+        objects.add(42);
+        
+
         // with generics, you get compile time checking of the T type
         GenericTest<String> course = new GenericTest<>("CIS", "2353");
         System.out.println(course);
