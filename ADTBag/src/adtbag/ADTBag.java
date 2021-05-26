@@ -50,7 +50,8 @@ public class ADTBag {
         result = linkedNames.toArray();
         
         for( Object name : result){
-            System.out.println(name);
+            String actuallyThisTypePlease = (String)name;
+            System.out.println(actuallyThisTypePlease);
         }
     }
 
