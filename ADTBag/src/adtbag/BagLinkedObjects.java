@@ -27,16 +27,19 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(1)
     public int getCurrentSize() {
         return numberOfItems;
     }
 
     @Override
+    // O(1)
     public boolean isEmpty() {
         return numberOfItems == 0;
     }
 
     @Override
+    // O(1)
     public boolean add(T item) {
         Node newNode = new Node(item, first);
         first = newNode;
@@ -45,6 +48,7 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(1)
     public T remove() {
         if (isEmpty()) {
             throw new IllegalStateException("Bag is empty");
@@ -56,6 +60,7 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(n)
     public boolean remove(T item) {
         if (isEmpty()) {
             throw new IllegalStateException("Bag is empty");
@@ -79,12 +84,14 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(1)
     public void clear() {
         first = null;
         numberOfItems = 0;
     }
 
     @Override
+    // O(n)
     public int getFrequencyOf(T item) {
         int frequency = 0;
         Node<T> current = first;
@@ -100,6 +107,7 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(n)
     public boolean contains(T item) {
         Node<T> current = first;
 
@@ -114,6 +122,7 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(n)
     public T[] toArray() {
         T[] result = (T[]) new Object[numberOfItems];
         Node<T> current = first;

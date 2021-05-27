@@ -7,7 +7,7 @@ public class Chapter4 {
     }
     
     public static char[] reverse(char[] toReverse){
-        for ( int index = 0; index < toReverse.length; index++ ){
+        for ( int index = 0; index < toReverse.length / 2; index++ ){
             char temp = toReverse[index];
             toReverse[index] = toReverse[toReverse.length-1-index];
             toReverse[toReverse.length-1-index] = temp;
