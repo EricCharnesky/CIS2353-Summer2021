@@ -18,19 +18,22 @@ public class BagArray<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(1) - constant
     public int getCurrentSize() {
         return numberOfItems;
     }
 
     @Override
+    // O(1) - constant
     public boolean isEmpty() {
         return numberOfItems == 0;
     }
 
     @Override
+    // O(1) - constant - average time
     public boolean add(T item) {
         if (numberOfItems == items.length) {
-            return false;
+            increaseCapacity();
         }
         items[numberOfItems] = item;
         numberOfItems++;
@@ -38,6 +41,7 @@ public class BagArray<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(1) - constant
     public T remove() {
         if (isEmpty()) {
             throw new IllegalStateException("Bag is empty");
@@ -50,6 +54,7 @@ public class BagArray<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(n) - linear
     public boolean remove(T item) {
         for (int index = 0; index < numberOfItems; index++) {
             if (item.equals(items[index])) {
@@ -63,6 +68,7 @@ public class BagArray<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(n) - linear
     public void clear() {
         while (!isEmpty()) {
             remove();
@@ -70,6 +76,7 @@ public class BagArray<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(n) - linear
     public int getFrequencyOf(T item) {
         int frequency = 0;
         for (int index = 0; index < numberOfItems; index++) {
@@ -81,6 +88,7 @@ public class BagArray<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(n) - linear
     public boolean contains(T item) {
         for (int index = 0; index < numberOfItems; index++) {
             if (items[index].equals(item)) {
@@ -91,6 +99,7 @@ public class BagArray<T> implements BagInterface<T> {
     }
 
     @Override
+    // O(n) - linear
     public T[] toArray() {
         // REALLY BAD! - don't give access to your private data member
         //return items;
@@ -102,6 +111,16 @@ public class BagArray<T> implements BagInterface<T> {
         }
         
         return result;
+    }
+
+    // O(n) - linear
+    private void increaseCapacity() {
+        T[] newItems = (T[]) new Object[numberOfItems*2];
+        for ( int index = 0; index < numberOfItems; index++){
+            newItems[index] = items[index];
+        }
+        
+        items = newItems;
     }
 
 }
