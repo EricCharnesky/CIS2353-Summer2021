@@ -53,7 +53,8 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
         if (isEmpty()) {
             throw new IllegalStateException("Bag is empty");
         }
-
+        
+        numberOfItems--;
         Node<T> toRemove = first;
         first = first.next;
         return toRemove.item;
@@ -70,7 +71,8 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
             remove();
             return true;
         }
-
+        
+        numberOfItems--;
         Node<T> current = first;
         while (current.next != null) {
             if (current.next.item.equals(item)) {
@@ -100,9 +102,9 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
             if (current.item.equals(item)) {
                 frequency++;
             }
-            current= current.next;
+            current = current.next;
         }
-        
+
         return frequency;
     }
 
@@ -115,9 +117,9 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
             if (current.item.equals(item)) {
                 return true;
             }
-            current= current.next;
+            current = current.next;
         }
-        
+
         return false;
     }
 
@@ -126,12 +128,11 @@ public class BagLinkedObjects<T> implements BagInterface<T> {
     public T[] toArray() {
         T[] result = (T[]) new Object[numberOfItems];
         Node<T> current = first;
-        for ( int index = 0; index < numberOfItems; index++ )
-        {
+        for (int index = 0; index < numberOfItems; index++) {
             result[index] = current.item;
             current = current.next;
         }
-        
+
         return result;
     }
 
