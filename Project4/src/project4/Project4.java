@@ -10,7 +10,7 @@ public class Project4 {
         Random random = new Random();
 
         boolean isSomeonesSandwichBeingMade = false;
-        int timeOrderIsCompleted = 0;
+        int timeOrderIsCompleted = -1;
 
         double totalTimeForNurses = 0;
         int numberOfNursesServed = 0;
@@ -26,7 +26,7 @@ public class Project4 {
                 Person person = new Person();
                 person.setTimeEnteredLine(minute);
                 queue.add(person);
-                System.out.println("New FTE entered the line: " + person);
+                System.out.println("New FTE entered the line: " + person + " at " + minute);
             }
             if (minute == timeOrderIsCompleted) {
                 isSomeonesSandwichBeingMade = false;
