@@ -62,12 +62,13 @@ public class Project4 {
                 }
             }
         }
-        
 
         System.out.println("Cafe closed after 120 minutes");
-        
-        System.out.println(queue.size() + " number of people were not served");
-        
+        System.out.println("Total people served: "
+                + (numberOfNursesServed + numberOfDoctorsServed + numberOfOthersServed));
+
+        System.out.println("Total people not served: " + queue.size());
+
         System.out.println("Number of nurses serverd: " + numberOfNursesServed);
         System.out.println("Average time from entering line to getting sandwich for nurses "
                 + totalTimeForNurses / numberOfNursesServed);

@@ -56,6 +56,9 @@ public class Person implements Comparable<Person> {
 
     @Override
     public int compareTo(Person other) {
+        if ( type == other.type ){
+            return timeEnteredLine - other.timeEnteredLine;
+        }
         return type.ordinal() - other.type.ordinal();
     }
 
